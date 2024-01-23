@@ -15,7 +15,10 @@ export default function Home({ data }) {
 
   return (
     <div className=" min-h-screen">
-      <form className="flex justify-center items-center mt-3" onSubmit={searchRecipe}>
+      <form
+        className="flex justify-center items-center mt-3"
+        onSubmit={searchRecipe}
+      >
         <input
           onChange={(e) => {
             setRecipe(e.target.value);
@@ -24,16 +27,21 @@ export default function Home({ data }) {
           type="text"
           placeholder="Search for recipes"
         />
-        <button className="border-solid border-teal-400 bg-white rounded-md p-1 hover:bg-teal-400 hover:text-white transition-all duration-300 border-2" type="submit">
+        <button
+          className="border-solid border-teal-400 bg-white rounded-md p-1 hover:bg-teal-400 hover:text-white transition-all duration-300 border-2"
+          type="submit"
+        >
           Search
         </button>
       </form>
       <div className="flex flex-row flex-wrap gap-8 mt-3 justify-center items-center">
-        {data && data.meals
-          ? data.meals.map((meal, index) => {
-              return <Hero key={index} data={meal} />;
-            })
-          : <h1 className="text-white">Nothing Found</h1>}
+        {data && data.meals ? (
+          data.meals.map((meal, index) => {
+            return <Hero key={index} data={meal} />;
+          })
+        ) : (
+          <h1 className="text-white">Nothing Found</h1>
+        )}
       </div>
     </div>
   );
